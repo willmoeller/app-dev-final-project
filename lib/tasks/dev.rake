@@ -1,7 +1,7 @@
 desc "Hydrate the database with some sample data to look at so that developing is easier"
-require "faker"
 task({ :sample_data => :environment }) do
   User.destroy_all
+  Brand.destroy_all
 
   50.times do
     user = User.new
@@ -20,5 +20,24 @@ task({ :sample_data => :environment }) do
     user.save
   end
 
+  brands = [
+    {
+      :name => "Lululemon",
+      :website => "https://shop.lululemon.com/",
+    },
+    {
+      :name => "Target",
+      :website => "https://www.target.com/",
+    },
+  ]
+
+  brands.each do |brand|
+    brand = Brand.new
+    brand.name = brand.fetch(:name)
+    brand.website = brand.fetch(:website)
+    brand.save
+  end
+
   p "Added #{User.count} users"
+  p "Added #{Brand.count} brands"
 end
