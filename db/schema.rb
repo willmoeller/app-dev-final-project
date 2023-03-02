@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_002824) do
+ActiveRecord::Schema.define(version: 2023_03_02_012133) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2023_03_02_002824) do
     t.string "last_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date_of_birth"
+    t.string "street_address"
+    t.string "apartment_number"
+    t.string "city"
+    t.string "state"
+    t.integer "zip_code"
+    t.string "auth_token"
+    t.boolean "verified"
   end
 
 end
