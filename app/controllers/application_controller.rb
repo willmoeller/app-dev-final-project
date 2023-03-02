@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action(:load_current_user)
+  before_action(:load_current_user) # will run before every action in the controller
 
   def index
     render({ :template => "index.html.erb" })

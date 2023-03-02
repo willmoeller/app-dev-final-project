@@ -19,6 +19,13 @@ Rails.application.routes.draw do
 
   # ------------------------------
 
+  # Routes for Brand authentication:
+
+  # Routes to CRUD data in Brand accounts:
+
+  # Routes to CRUD data in User accounts:
+
+
   # Routes to sign in and sign out:
 
   # SIGN IN FORM
