@@ -71,11 +71,17 @@ class UserAuthenticationController < ApplicationController
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
+    @user.date_of_birth = params.fetch("query_date_of_birth")
+    @user.street_address = params.fetch("query_street_address")
+    @user.apartment_number = params.fetch("query_apartment_number")
+    @user.city = params.fetch("query_city")
+    @user.state = params.fetch("query_state")
+    @user.zip_code = params.fetch("query_zip_code")
 
     if @user.valid?
       @user.save
 
-      redirect_to("/", { :notice => "User account updated successfully." })
+      redirect_to("/show_user_profile", { :notice => "User account updated successfully." })
     else
       render({ :template => "user_authentication/edit_profile_with_errors.html.erb", :alert => @user.errors.full_messages.to_sentence })
     end
