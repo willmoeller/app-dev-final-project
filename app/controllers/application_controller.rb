@@ -35,10 +35,6 @@ class ApplicationController < ActionController::Base
     render({ :template => "index.html.erb" })
   end
 
-  def dashboard
-    render({ :template => "dashboard.html.erb" })
-  end
-
   def sign_up
     render({ :template => "sign_up.html.erb" })
   end

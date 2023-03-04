@@ -19,7 +19,7 @@ class UserAuthenticationController < ApplicationController
       else
         session[:user_id] = user.id
 
-        redirect_to("/", { :notice => "Signed in successfully." })
+        redirect_to("/user_dashboard", { :notice => "Signed in successfully." })
       end
     else
       redirect_to("/user_sign_in", { :alert => "No user with that email address." })
@@ -49,7 +49,7 @@ class UserAuthenticationController < ApplicationController
     if save_status == true
       session[:user_id] = @user.id
 
-      redirect_to("/dashboard", { :notice => "User account created successfully." })
+      redirect_to("/user_dashboard", { :notice => "User account created successfully." })
     else
       redirect_to("/user_sign_up", { :alert => @user.errors.full_messages.to_sentence })
     end
@@ -92,5 +92,9 @@ class UserAuthenticationController < ApplicationController
     reset_session
 
     redirect_to("/", { :notice => "User account cancelled" })
+  end
+
+  def dashboard
+    render({ :template => "/users/dashboard.html.erb" })
   end
 end
