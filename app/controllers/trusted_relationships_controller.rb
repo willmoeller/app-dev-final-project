@@ -1,4 +1,9 @@
 class TrustedRelationshipsController < ApplicationController
+  def show_user_companies
+    @relationships = TrustedRelationship.where({ :user_id => @current_user.id })
+    render({ :template => "users/user_companies.html.erb" })
+  end
+
   def index
     matching_trusted_relationships = TrustedRelationship.all
 
@@ -39,7 +44,7 @@ class TrustedRelationshipsController < ApplicationController
 
     if the_trusted_relationship.valid?
       the_trusted_relationship.save
-      redirect_to("/trusted_relationships/#{the_trusted_relationship.id}", { :notice => "Trusted relationship updated successfully."} )
+      redirect_to("/trusted_relationships/#{the_trusted_relationship.id}", { :notice => "Trusted relationship updated successfully." })
     else
       redirect_to("/trusted_relationships/#{the_trusted_relationship.id}", { :alert => the_trusted_relationship.errors.full_messages.to_sentence })
     end
@@ -51,6 +56,6 @@ class TrustedRelationshipsController < ApplicationController
 
     the_trusted_relationship.destroy
 
-    redirect_to("/trusted_relationships", { :notice => "Trusted relationship deleted successfully."} )
+    redirect_to("/trusted_relationships", { :notice => "Trusted relationship deleted successfully." })
   end
 end

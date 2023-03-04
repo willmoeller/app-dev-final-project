@@ -1,23 +1,4 @@
 Rails.application.routes.draw do
-  # Routes for the Trusted relationship resource:
-
-  # CREATE
-  post("/insert_trusted_relationship", { :controller => "trusted_relationships", :action => "create" })
-          
-  # READ
-  get("/trusted_relationships", { :controller => "trusted_relationships", :action => "index" })
-  
-  get("/trusted_relationships/:path_id", { :controller => "trusted_relationships", :action => "show" })
-  
-  # UPDATE
-  
-  post("/modify_trusted_relationship/:path_id", { :controller => "trusted_relationships", :action => "update" })
-  
-  # DELETE
-  get("/delete_trusted_relationship/:path_id", { :controller => "trusted_relationships", :action => "destroy" })
-
-  #------------------------------
-
   # Application routes:
   get("/", { :controller => "application", :action => "index" })
   get("/sign_up", { :controller => "application", :action => "sign_up" })
@@ -54,4 +35,24 @@ Rails.application.routes.draw do
   get("/edit_company_password", { :controller => "company", :action => "edit_password_form" })
   post("/update_company_password", { :controller => "company", :action => "update_password" })
   get("/delete_company_account", { :controller => "company", :action => "destroy_account" })
+
+  # Routes for Trusted relationships:
+  get("/user_companies", { :controller => "trusted_relationships", :action => "show_user_companies" })
+
+  # CREATE
+  post("/insert_trusted_relationship", { :controller => "trusted_relationships", :action => "create" })
+
+  # READ
+  get("/trusted_relationships", { :controller => "trusted_relationships", :action => "index" })
+
+  get("/trusted_relationships/:path_id", { :controller => "trusted_relationships", :action => "show" })
+
+  # UPDATE
+
+  post("/modify_trusted_relationship/:path_id", { :controller => "trusted_relationships", :action => "update" })
+
+  # DELETE
+  get("/delete_trusted_relationship/:path_id", { :controller => "trusted_relationships", :action => "destroy" })
+
+  #------------------------------
 end

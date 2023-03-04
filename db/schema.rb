@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2023_03_04_201904) do
 
   create_table "trusted_relationships", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "brand_id"
+    t.integer "company_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
