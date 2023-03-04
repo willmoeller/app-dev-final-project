@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Trusted relationship #<%= @the_trusted_relationship.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/trusted_relationships">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_trusted_relationship/<%= @the_trusted_relationship.id %>">
+          Delete trusted relationship
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_trusted_relationship.user_id %>
+      </dd>
+
+      <dt>
+        Brand
+      </dt>
+      <dd>
+        <%= @the_trusted_relationship.brand_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_trusted_relationship.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_trusted_relationship.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit trusted relationship
+    </h2>
+
+    <form action="/modify_trusted_relationship/<%= @the_trusted_relationship.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_trusted_relationship.user_id %>">
+      </div>
+
+      <div>
+        <label for="brand_id_box">
+          Brand
+        </label>
+
+        <input type="text" id="brand_id_box" name="query_brand_id" value="<%= @the_trusted_relationship.brand_id %>">
+      </div>
+
+      <button>
+        Update trusted relationship
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
