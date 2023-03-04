@@ -1,0 +1,34 @@
+<div >
+  <h5>
+    Edit Company Account
+  </h5>
+
+  <% if @company.errors.any? %>
+  <% @company.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+  <% end %>
+  <div>
+    <form action="/update_company_profile" method="post">
+              
+      <div>
+        <label for="email_box">Email</label>
+        <input id="email_box" name="query_email" value="<%= @current_company.email %>"> 
+      </div>
+                                    
+      <div>
+        <label for="name_box">Name</label>
+        <input id="name_box" name="query_name" value="<%= @current_company.name %>">   
+      </div>
+                      
+      <div>
+        <label for="website_box">Website</label>
+        <input id="website_box" name="query_website" value="<%= @current_company.website %>"> 
+      </div>
+
+      <button>Update account</button>
+    </form>
+  </div>
+</div>

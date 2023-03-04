@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get("/", { :controller => "application", :action => "index" })
   get("/sign_up", { :controller => "application", :action => "sign_up" })
   get("/sign_in", { :controller => "application", :action => "sign_in" })
-  get("/company_dashboard", { :controller => "company_authentication", :action => "dashboard" })
 
   # Routes for a User authentication:
   get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })
@@ -21,13 +20,19 @@ Rails.application.routes.draw do
   post("/update_user_password", { :controller => "users", :action => "update_password" })
   get("/delete_user_account", { :controller => "users", :action => "destroy_account" })
 
-  # CRUD routes for a Company account:
+  # Routes for Company authentication:
   get("/company_sign_up", { :controller => "company_authentication", :action => "sign_up_form" })
-  post("/insert_company", { :controller => "company_authentication", :action => "create" })
-  get("/edit_company_profile", { :controller => "company_authentication", :action => "edit_profile_form" })
-  post("/modify_company", { :controller => "company_authentication", :action => "update" })
+  post("/create_company_account", { :controller => "company_authentication", :action => "create_account" })
   get("/company_sign_in", { :controller => "company_authentication", :action => "sign_in_form" })
   post("/company_verify_credentials", { :controller => "company_authentication", :action => "create_cookie" })
   get("/company_sign_out", { :controller => "company_authentication", :action => "destroy_cookies" })
-  get("/cancel_company_account", { :controller => "company_authentication", :action => "destroy" })
+
+  # Routes for Company information:
+  get("/company_dashboard", { :controller => "company", :action => "dashboard" })
+  get("/show_company_profile", { :controller => "company", :action => "show_profile" })
+  get("/edit_company_profile", { :controller => "company", :action => "edit_profile_form" })
+  post("/update_company_profile", { :controller => "company", :action => "update_profile" })
+  get("/edit_company_password", { :controller => "company", :action => "edit_password_form" })
+  post("/update_company_password", { :controller => "company", :action => "update_password" })
+  get("/delete_company_account", { :controller => "company", :action => "destroy_account" })
 end
