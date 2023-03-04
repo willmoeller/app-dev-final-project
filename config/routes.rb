@@ -7,19 +7,19 @@ Rails.application.routes.draw do
 
   # Routes for a User authentication:
   get("/user_sign_up", { :controller => "user_authentication", :action => "sign_up_form" })
-  post("/insert_user", { :controller => "user_authentication", :action => "create" })
+  post("/create_user_account", { :controller => "user_authentication", :action => "create_account" })
   get("/user_sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
   post("/user_verify_credentials", { :controller => "user_authentication", :action => "create_cookie" })
   get("/user_sign_out", { :controller => "user_authentication", :action => "destroy_cookies" })
 
   # Routes for User information:
-  get("/user_dashboard", { :controller => "user_authentication", :action => "dashboard" })
-  get("/show_user_profile", { :controller => "user_authentication", :action => "show" })
-  get("/edit_user_profile", { :controller => "user_authentication", :action => "edit_profile_form" })
-  post("/modify_user", { :controller => "user_authentication", :action => "update" })
-  get("/edit_user_password", { :controller => "user_authentication", :action => "edit_password_form" })
-  post("/update_user_password", { :controller => "user_authentication", :action => "update_password" })
-  get("/cancel_user_account", { :controller => "user_authentication", :action => "destroy" })
+  get("/user_dashboard", { :controller => "users", :action => "dashboard" })
+  get("/show_user_profile", { :controller => "users", :action => "show" })
+  get("/edit_user_profile", { :controller => "users", :action => "edit_profile_form" })
+  post("/modify_user", { :controller => "users", :action => "update" })
+  get("/edit_user_password", { :controller => "users", :action => "edit_password_form" })
+  post("/update_user_password", { :controller => "users", :action => "update_password" })
+  get("/cancel_user_account", { :controller => "users", :action => "destroy" })
 
   # CRUD routes for a Company account:
   get("/company_sign_up", { :controller => "company_authentication", :action => "sign_up_form" })
