@@ -20,11 +20,12 @@ Rails.application.routes.draw do
   # ------------------------------
 
   # Routes for Brand authentication:
+  get("/company_sign_up", { :controller => "company_authentication", :action => "company_sign_up_form" })
+  post("/insert_company", { :controller => "company_authentication", :action => "create_company" })
 
   # Routes to CRUD data in Brand accounts:
 
   # Routes to CRUD data in User accounts:
-
 
   # Routes to sign in and sign out:
 
