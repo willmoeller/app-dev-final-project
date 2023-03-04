@@ -1,32 +1,29 @@
 <h1>Sign up</h1>
 
 <form action="/insert_company" method="post">
+  <div>
+    <label for="name_box">Company Name</label>
+    <input type="text" id="name_box" name="query_name" placeholder="Enter your company's name">
+  </div>
 
   <div>
     <label for="email_box">Email</label>
-    <input id="email_box" name="query_email" placeholder="Choose a email..." type="text">
+    <input type="text" id="email_box" name="query_email" placeholder="Enter your company email">
   </div>
-                 
-  <div>
-    <label for="name_box">Name</label>
-      
-    <input type="text" id="name_box" name="query_name">
-  </div>
-         
+                        
   <div>
     <label for="website_box">Website</label>
-      
-    <input type="text" id="website_box" name="query_website">
+    <input type="text" id="website_box" name="query_website" placeholder="Enter your company's website">
   </div>
     
   <div>
     <label for="password_box">Password</label>
-    <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
+    <input type="password" id="password_box" name="query_password" placeholder="Enter a password">
   </div>
 
   <div>
     <label for="password_confirmation_box">Password Confirmation</label>
-    <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
+    <input type="password" id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm the password">
   </div>
 
   <button>
