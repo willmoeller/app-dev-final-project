@@ -1,7 +1,7 @@
 desc "Hydrate the database with some sample data to look at so that developing is easier"
 task({ :sample_data => :environment }) do
   User.destroy_all
-  Brand.destroy_all
+  Company.destroy_all
 
   50.times do
     user = User.new
@@ -20,7 +20,7 @@ task({ :sample_data => :environment }) do
     user.save
   end
 
-  brands = [
+  companies = [
     {
       :name => "Lululemon",
       :website => "https://shop.lululemon.com/",
@@ -31,13 +31,13 @@ task({ :sample_data => :environment }) do
     },
   ]
 
-  brands.each do |brand|
-    brand = Brand.new
-    brand.name = brand.fetch(:name)
-    brand.website = brand.fetch(:website)
-    brand.save
+  companies.each do |company|
+    company = Company.new
+    company.name = company.fetch(:name)
+    company.website = company.fetch(:website)
+    company.save
   end
 
   p "Added #{User.count} users"
-  p "Added #{Brand.count} brands"
+  p "Added #{Company.count} companies"
 end
