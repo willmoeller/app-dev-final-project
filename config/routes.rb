@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Trusted relationship resource:
+
+  # CREATE
+  post("/insert_trusted_relationship", { :controller => "trusted_relationships", :action => "create" })
+          
+  # READ
+  get("/trusted_relationships", { :controller => "trusted_relationships", :action => "index" })
+  
+  get("/trusted_relationships/:path_id", { :controller => "trusted_relationships", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_trusted_relationship/:path_id", { :controller => "trusted_relationships", :action => "update" })
+  
+  # DELETE
+  get("/delete_trusted_relationship/:path_id", { :controller => "trusted_relationships", :action => "destroy" })
+
+  #------------------------------
+
   # Application routes:
   get("/", { :controller => "application", :action => "index" })
   get("/sign_up", { :controller => "application", :action => "sign_up" })
