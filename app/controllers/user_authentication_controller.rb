@@ -97,4 +97,21 @@ class UserAuthenticationController < ApplicationController
   def dashboard
     render({ :template => "/users/dashboard.html.erb" })
   end
+
+  def edit_password_form
+    render({ :template => "/user_authentication/edit_password.html.erb" })
+  end
+
+  def update_password
+    @user = @current_user
+    @user.password = params.fetch("query_password")
+    @user.password_confirmation = params.fetch("query_password_confirmation")
+
+    if @user.valid?
+      @user.save
+      redirect_to("/user_dashboard", { :notice => "Password updated successfully." })
+    else
+      render({ :template => "user_authentication/edit_profile_with_errors.html.erb", :alert => @user.errors.full_messages.to_sentence })
+    end
+  end
 end
