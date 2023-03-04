@@ -11,15 +11,15 @@ Rails.application.routes.draw do
   get("/user_sign_in", { :controller => "user_authentication", :action => "sign_in_form" })
   post("/user_verify_credentials", { :controller => "user_authentication", :action => "create_cookie" })
   get("/user_sign_out", { :controller => "user_authentication", :action => "destroy_cookies" })
-  get("/cancel_user_account", { :controller => "user_authentication", :action => "destroy" })
-  get("/edit_user_password", { :controller => "user_authentication", :action => "edit_password_form" })
-  post("/update_user_password", { :controller => "user_authentication", :action => "update_password" })
 
-  # CRUD routes for User information:
+  # Routes for User information:
   get("/user_dashboard", { :controller => "user_authentication", :action => "dashboard" })
   get("/show_user_profile", { :controller => "user_authentication", :action => "show" })
   get("/edit_user_profile", { :controller => "user_authentication", :action => "edit_profile_form" })
   post("/modify_user", { :controller => "user_authentication", :action => "update" })
+  get("/edit_user_password", { :controller => "user_authentication", :action => "edit_password_form" })
+  post("/update_user_password", { :controller => "user_authentication", :action => "update_password" })
+  get("/cancel_user_account", { :controller => "user_authentication", :action => "destroy" })
 
   # CRUD routes for a Company account:
   get("/company_sign_up", { :controller => "company_authentication", :action => "sign_up_form" })
