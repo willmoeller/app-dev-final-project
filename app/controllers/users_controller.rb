@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       @user.save
       redirect_to("/user_dashboard", { :notice => "Password updated successfully." })
     else
-      render({ :template => "user_authentication/edit_profile_with_errors.html.erb", :alert => @user.errors.full_messages.to_sentence })
+      render({ :template => "users/edit_password_with_errors.html.erb", :alert => @user.errors.full_messages.to_sentence })
     end
   end
 
