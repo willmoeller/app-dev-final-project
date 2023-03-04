@@ -3,20 +3,18 @@ class UsersController < ApplicationController
     render({ :template => "/users/dashboard.html.erb" })
   end
 
-  def show
+  def show_profile
     @user = @current_user
-    render({ :template => "user_authentication/show_profile.html.erb" })
+    render({ :template => "users/show_profile.html.erb" })
   end
 
   def edit_profile_form
-    render({ :template => "user_authentication/edit_profile.html.erb" })
+    render({ :template => "users/edit_profile.html.erb" })
   end
 
-  def update
+  def update_profile
     @user = @current_user
     @user.email = params.fetch("query_email")
-    @user.password = params.fetch("query_password")
-    @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
     @user.date_of_birth = params.fetch("query_date_of_birth")
@@ -31,7 +29,7 @@ class UsersController < ApplicationController
 
       redirect_to("/show_user_profile", { :notice => "User account updated successfully." })
     else
-      render({ :template => "user_authentication/edit_profile_with_errors.html.erb", :alert => @user.errors.full_messages.to_sentence })
+      render({ :template => "users/edit_profile_with_errors.html.erb", :alert => @user.errors.full_messages.to_sentence })
     end
   end
 
@@ -52,4 +50,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy_account
+    @current_user.destroy
+    reset_session
+    redirect_to("/", { :notice => "Your account was successfully deleted." })
+  end
 end

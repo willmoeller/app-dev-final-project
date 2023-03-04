@@ -4,7 +4,7 @@
   </h1>
 
   <div>
-    <form action="/modify_user" method="post">
+    <form action="/update_user_profile" method="post">
       <div>
         <label for="email_box">Email</label>
         <input id="email_box" name="query_email" value="<%= @current_user.email %>">
@@ -48,16 +48,6 @@
       <div>
         <label for="zip_code_box">Zip code</label>
         <input id="zip_code_box" name="query_zip_code" value="<%= @current_user.zip_code %>">
-      </div>
-
-      <div>
-        <label for="password_box">Password</label>
-        <input id="password_box" name="query_password" placeholder="Choose a password..." type="password">
-      </div>
-    
-      <div>
-        <label for="password_confirmation_box">Password Confirmation</label>
-        <input id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm your password..." type="password">
       </div>
 
       <button>Update account</button>

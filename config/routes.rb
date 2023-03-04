@@ -14,12 +14,12 @@ Rails.application.routes.draw do
 
   # Routes for User information:
   get("/user_dashboard", { :controller => "users", :action => "dashboard" })
-  get("/show_user_profile", { :controller => "users", :action => "show" })
+  get("/show_user_profile", { :controller => "users", :action => "show_profile" })
   get("/edit_user_profile", { :controller => "users", :action => "edit_profile_form" })
-  post("/modify_user", { :controller => "users", :action => "update" })
+  post("/update_user_profile", { :controller => "users", :action => "update_profile" })
   get("/edit_user_password", { :controller => "users", :action => "edit_password_form" })
   post("/update_user_password", { :controller => "users", :action => "update_password" })
-  get("/cancel_user_account", { :controller => "users", :action => "destroy" })
+  get("/delete_user_account", { :controller => "users", :action => "destroy_account" })
 
   # CRUD routes for a Company account:
   get("/company_sign_up", { :controller => "company_authentication", :action => "sign_up_form" })

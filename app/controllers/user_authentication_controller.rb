@@ -48,10 +48,4 @@ class UserAuthenticationController < ApplicationController
     reset_session
     redirect_to("/", { :notice => "Signed out successfully." })
   end
-
-  def destroy
-    @current_user.destroy
-    reset_session
-    redirect_to("/", { :notice => "User account cancelled" })
-  end
 end
