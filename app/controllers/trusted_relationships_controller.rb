@@ -25,13 +25,13 @@ class TrustedRelationshipsController < ApplicationController
   def create
     the_trusted_relationship = TrustedRelationship.new
     the_trusted_relationship.user_id = params.fetch("query_user_id")
-    the_trusted_relationship.brand_id = params.fetch("query_brand_id")
+    the_trusted_relationship.company_id = params.fetch("query_company_id")
 
     if the_trusted_relationship.valid?
       the_trusted_relationship.save
-      redirect_to("/trusted_relationships", { :notice => "Trusted relationship created successfully." })
+      redirect_to("/user_companies", { :notice => "Trusted relationship created successfully." })
     else
-      redirect_to("/trusted_relationships", { :alert => the_trusted_relationship.errors.full_messages.to_sentence })
+      redirect_to("/user_companies", { :alert => the_trusted_relationship.errors.full_messages.to_sentence })
     end
   end
 
@@ -40,7 +40,7 @@ class TrustedRelationshipsController < ApplicationController
     the_trusted_relationship = TrustedRelationship.where({ :id => the_id }).at(0)
 
     the_trusted_relationship.user_id = params.fetch("query_user_id")
-    the_trusted_relationship.brand_id = params.fetch("query_brand_id")
+    the_trusted_relationship.company_id = params.fetch("query_company_id")
 
     if the_trusted_relationship.valid?
       the_trusted_relationship.save
@@ -53,10 +53,9 @@ class TrustedRelationshipsController < ApplicationController
   def destroy
     the_id = params.fetch("path_id")
     the_trusted_relationship = TrustedRelationship.where({ :id => the_id }).at(0)
-
     the_trusted_relationship.destroy
 
-    redirect_to("/trusted_relationships", { :notice => "Trusted relationship deleted successfully." })
+    redirect_to("/user_companies", { :notice => "Relationship deleted successfully." })
   end
 
   def show_company_to_users

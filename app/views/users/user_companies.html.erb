@@ -1,7 +1,18 @@
 <h1>Trusted Companies</h1>
 
+<form action="/insert_trusted_relationship" method="post">
+  <input type="hidden" name="query_user_id" id="query_user_id" value="<%= @current_user.id %>">
+  <label for="company">Select a company:</label>
+  <select name="query_company_id" id="query_company_id">
+    <% Company.all.each do |company| %>
+      <option value="<%= company.id %>"><%= company.name %></option>
+    <% end %>
+  </select>
+  <button>Create relationship</button>
+</form>
+
 <ul>
 <% @relationships.each do |relationship| %>
-  <li><a href="/show_company/<%= relationship.company.id %>"><%= relationship.company.name %></a> | <%= relationship.company.website %></li>
+  <li><a href="/show_company/<%= relationship.company.id %>"><%= relationship.company.name %></a> | <%= relationship.company.website %> | <a href="/delete_trusted_relationship/<%= relationship.id %>">Remove relationship</a></li>
 <% end %>
 </ul>
