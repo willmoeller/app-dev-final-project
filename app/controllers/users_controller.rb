@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     render({ :template => "/users/dashboard.html.erb" })
   end
 
+  def preferences
+    render({ :template => "/users/preferences.html.erb" })
+  end
+
   def show_profile
     @user = @current_user
     render({ :template => "users/show_profile.html.erb" })
