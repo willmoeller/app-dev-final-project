@@ -1,3 +1,7 @@
+<h1>Trusted Companies</h1>
+
+<ul>
 <% @relationships.each do |relationship| %>
-  <p><%= relationship.company.name %></p>
+  <li><a href="/show_company/<%= relationship.company.id %>"><%= relationship.company.name %></a> | <%= relationship.company.website %></li>
 <% end %>
+</ul>

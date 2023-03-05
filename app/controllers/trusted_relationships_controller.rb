@@ -58,4 +58,10 @@ class TrustedRelationshipsController < ApplicationController
 
     redirect_to("/trusted_relationships", { :notice => "Trusted relationship deleted successfully." })
   end
+
+  def show_company_to_users
+    company_id = params.fetch("path_id")
+    @company = Company.where({ :id => company_id }).first
+    render({ :template => "trusted_relationships/show_company.html.erb" })
+  end
 end
