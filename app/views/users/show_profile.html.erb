@@ -1,15 +1,29 @@
 <h1>Your Data</h1>
 
-<ul>
-  <li>First name: <%= @user.first_name %></li>
-  <li>Last name: <%= @user.last_name %></li>
-  <li>Birthday: <%= @user.date_of_birth %></li>
-  <li>Address (line 1): <%= @user.street_address %></li>
-  <li>Address (line 2): <%= @user.apartment_number %></li>
-  <li>City: <%= @user.city %></li>
-  <li>State: <%= @user.state %></li>
-  <li>Zip code: <%= @user.zip_code %></li>
-</ul>
+<dl>
+  <dt>First name</dt>
+  <dd><%= @user.first_name %></dd>
 
-<a href="/edit_user_profile">Edit your data</a>
-<a href="/cancel_user_account">Delete account</a>
+  <dt>Last name</dt>
+  <dd><%= @user.last_name %></dd>
+
+  <dt>Address (line 1)</dt>
+  <dd><%= @user.street_address %></dd>
+
+  <dt>Address (line 2)</dt>
+  <dd><%= @user.apartment_number %></dd>
+
+  <dt>City</dt>
+  <dd> <%= @user.city %></dd>
+
+  <dt>State</dt>
+  <dd><%= @user.state %></dd>
+
+  <dt>Zip code</dt>
+  <dd><%= @user.zip_code %></dd>
+</dl>
+
+<div>
+  <a href="/edit_user_profile">Edit your data</a>
+</div>
+

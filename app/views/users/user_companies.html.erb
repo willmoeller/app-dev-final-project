@@ -1,6 +1,6 @@
 <h1>Trusted Companies</h1>
 
-<form action="/insert_trusted_relationship" method="post">
+<form action="/insert_trusted_relationship" method="post" class="mb-4">
   <input type="hidden" name="query_user_id" id="query_user_id" value="<%= @current_user.id %>">
   <label for="company">Select a company:</label>
   <select name="query_company_id" id="query_company_id">
@@ -8,11 +8,19 @@
       <option value="<%= company.id %>"><%= company.name %></option>
     <% end %>
   </select>
-  <button>Create relationship</button>
+  <button type="submit" class="btn btn-primary btn-sm">Create relationship</button>
 </form>
 
-<ul>
-<% @relationships.each do |relationship| %>
-  <li><a href="/show_company/<%= relationship.company.id %>"><%= relationship.company.name %></a> | <%= relationship.company.website %> | <a href="/delete_trusted_relationship/<%= relationship.id %>">Remove relationship</a></li>
-<% end %>
+<ul class="list-group">
+  <% @relationships.each do |relationship| %>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold"><a href="/show_company/<%= relationship.company.id %>"><%= relationship.company.name %></a></div>
+      <%= relationship.company.website %>
+    </div>
+    <div>
+      <a href="/delete_trusted_relationship/<%= relationship.id %>">Remove relationship</a>
+    </div>
+  </li>
+  <% end %>
 </ul>
