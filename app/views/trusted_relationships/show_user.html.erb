@@ -1,0 +1,38 @@
+<h1>User Profile</h1>
+
+<dl>
+  <dt>First name</dt>
+  <% if @user.share_first_name == true %>
+  <dd><%= @user.first_name %></dd>
+  <% else %>
+  <dd>Data not shared</dd>
+  <% end%>
+
+  <dt>Last name</dt>
+  <% if @user.share_last_name == true %>
+  <dd><%= @user.last_name %></dd>
+  <% else %>
+  <dd>Data not shared</dd>
+  <% end%>
+
+  <dt>Email</dt>
+  <% if @user.share_email == true %>
+  <dd><%= @user.email %></dd>
+  <% else %>
+  <dd>Data not shared</dd>
+  <% end%>
+
+  <dt>Date of birth</dt>
+  <% if @user.share_date_of_birth == true %>
+  <dd><%= @user.date_of_birth %></dd>
+  <% else %>
+  <dd>Data not shared</dd>
+  <% end%>
+
+  <dt>Address</dt>
+  <% if @user.share_address == true %>
+  <dd><%= @user.street_address %> <%= @user.apartment_number %>, <%= @user.city %>, <%= @user.state %> <%= @user.zip_code %></dd>
+  <% else %>
+  <dd>Data not shared</dd>
+  <% end%>
+</dl>

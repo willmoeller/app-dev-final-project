@@ -4,6 +4,25 @@ class TrustedRelationshipsController < ApplicationController
     render({ :template => "users/user_companies.html.erb" })
   end
 
+  def show_company_to_users
+    company_id = params.fetch("path_id")
+    @company = Company.where({ :id => company_id }).first
+    render({ :template => "trusted_relationships/show_company.html.erb" })
+  end
+
+  def show_company_users
+    @relationships = TrustedRelationship.where({ :company_id => @current_company.id })
+    render({ :template => "companies/company_users.html.erb" })
+  end
+
+  def show_user_to_companies
+    user_id = params.fetch("path_id")
+    @user = User.where({ :id => user_id }).first
+    render({ :template => "trusted_relationships/show_user.html.erb" })
+  end
+
+  # --- not used
+
   def index
     matching_trusted_relationships = TrustedRelationship.all
 
@@ -56,11 +75,5 @@ class TrustedRelationshipsController < ApplicationController
     the_trusted_relationship.destroy
 
     redirect_to("/user_companies", { :notice => "Relationship deleted successfully." })
-  end
-
-  def show_company_to_users
-    company_id = params.fetch("path_id")
-    @company = Company.where({ :id => company_id }).first
-    render({ :template => "trusted_relationships/show_company.html.erb" })
   end
 end

@@ -1,0 +1,17 @@
+<h1>Your Users</h1>
+
+<ul class="list-group mb-4">
+  <% @relationships.each do |relationship| %>
+  <li class="list-group-item">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">User ID: <%= relationship.user.id %> (masked)</div>
+      <a href="/show_user/<%= relationship.user.id %>">Click to view shared data</a>
+      <div> <small>Added <%= time_ago_in_words(relationship.created_at) %> ago</small></div>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
+<div>
+  <a href="/company_dashboard">Back to dashboard</a>
+</div>

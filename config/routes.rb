@@ -40,8 +40,10 @@ Rails.application.routes.draw do
   get("/delete_company_account", { :controller => "company", :action => "destroy_account" })
 
   # Routes for Trusted relationships:
-  get("/show_company/:path_id", { :controller => "trusted_relationships", :action => "show_company_to_users" })
   get("/user_companies", { :controller => "trusted_relationships", :action => "show_user_companies" })
+  get("/show_company/:path_id", { :controller => "trusted_relationships", :action => "show_company_to_users" })
+  get("/company_users", { :controller => "trusted_relationships", :action => "show_company_users" })
+  get("/show_user/:path_id", { :controller => "trusted_relationships", :action => "show_user_to_companies" })
 
   # CREATE
   post("/insert_trusted_relationship", { :controller => "trusted_relationships", :action => "create" })
