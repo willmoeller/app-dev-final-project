@@ -28,3 +28,44 @@
     <button type="submit" class="btn btn-primary mb-3">Set preferences</button>
   </form>
 </div>
+
+<div class="mb-4">
+  <p>You are sharing:</p>
+  <ul class="list-group">
+    <% if @current_user.share_email == true %>
+      <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+        Email
+        <span><a href="/delete_user_preference/share_email">Remove</a></span>
+      </li>
+    <% end %>
+
+    <% if @current_user.share_first_name == true %>
+      <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+        First name
+        <span><a href="/delete_user_preference/share_first_name">Remove</a></span>
+      </li>
+    <% end %>
+
+    <% if @current_user.share_last_name == true %>
+      <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+        Last name
+        <span><a href="/delete_user_preference/share_last_name">Remove</a></span>
+      </li>
+    <% end %>
+
+    <% if @current_user.share_date_of_birth == true %>
+      <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+        Date of birth
+        <span><a href="/delete_user_preference/share_date_of_birth">Remove</a></span>
+      </li>
+    <% end %>
+
+    <% if @current_user.share_address == true %>
+      <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+        Address
+        <span><a href="/delete_user_preference/share_address">Remove</a></span>
+      </li>
+    <% end %>
+
+  </ul>
+</div>

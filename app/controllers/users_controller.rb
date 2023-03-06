@@ -8,19 +8,56 @@ class UsersController < ApplicationController
   end
 
   def update_preferences
-    user = @current_user
+    user = User.where({ :id => @current_user.id }).first
     if params.has_key?(:email)
-      email = params.fetch("email")
+      user.share_email = true
     end
 
+    if params.has_key?(:first_name)
+      user.share_first_name = true
+    end
+
+    if params.has_key?(:last_name)
+      user.share_last_name = true
+    end
+
+    if params.has_key?(:date_of_birth)
+      user.share_date_of_birth = true
+    end
+
+    if params.has_key?(:address)
+      user.share_address = true
+    end
+
+    user.save
     redirect_to("/user_preferences")
-    # render({ :template => "/users/preferences.html.erb" })
+  end
 
-    # first_name = params.fetch("first_name")
-    # last_name = params.fetch("last_name")
-    # date_of_birth = params.fetch("date_of_birth")
-    # address = params.fetch("address")
+  def destroy_preference
+    user = User.where({ :id => @current_user.id }).first
 
+    if params.has_value?("share_email")
+      user.share_email = false
+    end
+
+    if params.has_value?("share_first_name")
+      user.share_first_name = false
+    end
+
+    if params.has_value?("share_last_name")
+      user.share_last_name = false
+    end
+
+    if params.has_value?("share_date_of_birth")
+      user.share_date_of_birth = false
+    end
+
+    if params.has_value?("share_address")
+      user.share_address = false
+    end
+
+    user.save
+    redirect_to("/user_preferences")
   end
 
   def show_profile

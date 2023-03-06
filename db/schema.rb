@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_04_201904) do
+ActiveRecord::Schema.define(version: 2023_03_06_105318) do
 
   create_table "companies", force: :cascade do |t|
     t.string "email"
@@ -43,6 +43,11 @@ ActiveRecord::Schema.define(version: 2023_03_04_201904) do
     t.integer "zip_code"
     t.string "auth_token"
     t.boolean "verified"
+    t.boolean "share_email"
+    t.boolean "share_first_name"
+    t.boolean "share_last_name"
+    t.boolean "share_date_of_birth"
+    t.boolean "share_address"
   end
 
 end
