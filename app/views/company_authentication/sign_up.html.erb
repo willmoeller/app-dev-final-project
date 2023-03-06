@@ -1,34 +1,32 @@
-<h1>Sign up</h1>
+<h1>Company Sign Up</h1>
 
 <form action="/create_company_account" method="post">
-  <div>
-    <label for="name_box">Company Name</label>
-    <input type="text" id="name_box" name="query_name" placeholder="Enter your company's name">
+  <div class="mb-3">
+    <label for="name_box" class="form-label">Company name</label>
+    <input type="text" id="name_box" name="query_name" placeholder="Enter your company's name" class="form-control">
   </div>
 
-  <div>
-    <label for="email_box">Email</label>
-    <input type="text" id="email_box" name="query_email" placeholder="Enter your company email">
+  <div class="mb-3">
+    <label for="email_box" class="form-label">Email</label>
+    <input type="text" id="email_box" name="query_email" placeholder="Enter your company email" class="form-control">
   </div>
                         
-  <div>
-    <label for="website_box">Website</label>
-    <input type="text" id="website_box" name="query_website" placeholder="Enter your company's website">
+  <div class="mb-3">
+    <label for="website_box" class="form-label">Website</label>
+    <input type="text" id="website_box" name="query_website" placeholder="Enter your company's website" class="form-control">
   </div>
     
-  <div>
-    <label for="password_box">Password</label>
-    <input type="password" id="password_box" name="query_password" placeholder="Enter a password">
+  <div class="mb-3">
+    <label for="password_box" class="form-label">Password</label>
+    <input type="password" id="password_box" name="query_password" placeholder="Enter a password" class="form-control">
   </div>
 
-  <div>
-    <label for="password_confirmation_box">Password Confirmation</label>
-    <input type="password" id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm the password">
+  <div class="mb-3">
+    <label for="password_confirmation_box" class="form-label">Password Confirmation</label>
+    <input type="password" id="password_confirmation_box" name="query_password_confirmation" placeholder="Confirm the password" class="form-control">
   </div>
 
-  <button>
-    Sign up
-  </button>
+  <button type="submit" class="btn btn-primary mb-3">Sign up</button>
 </form>
 
 <hr>
