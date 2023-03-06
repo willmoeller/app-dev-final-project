@@ -90,7 +90,7 @@ class UsersController < ApplicationController
   end
 
   def edit_password_form
-    render({ :template => "/user_authentication/edit_password.html.erb" })
+    render({ :template => "/users/edit_password.html.erb" })
   end
 
   def update_password
