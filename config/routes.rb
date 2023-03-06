@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post("/update_user_password", { :controller => "users", :action => "update_password" })
   get("/user_preferences", { :controller => "users", :action => "preferences" })
   get("/delete_user_account", { :controller => "users", :action => "destroy_account" })
+  post("/update_user_preferences", { :controller => "users", :action => "update_preferences" })
 
   # Routes for Company authentication:
   get("/company_sign_up", { :controller => "company_authentication", :action => "sign_up_form" })

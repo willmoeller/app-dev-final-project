@@ -3,7 +3,7 @@
 <form action="/insert_trusted_relationship" method="post" class="mb-4">
   <input type="hidden" name="query_user_id" id="query_user_id" value="<%= @current_user.id %>">
   <label for="company">Select a company:</label>
-  <select name="query_company_id" id="query_company_id">
+  <select name="query_company_id" id="query_company_id" class="form-select mb-2">
     <% Company.all.each do |company| %>
       <option value="<%= company.id %>"><%= company.name %></option>
     <% end %>
@@ -16,10 +16,11 @@
   <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
       <div class="fw-bold"><a href="/show_company/<%= relationship.company.id %>"><%= relationship.company.name %></a></div>
-      <%= relationship.company.website %>
+      <div><%= relationship.company.website %></div>
+      <small>Added <%= time_ago_in_words(relationship.created_at) %> ago</small>
     </div>
     <div>
-      <a href="/delete_trusted_relationship/<%= relationship.id %>">Remove relationship</a>
+      <a href="/delete_trusted_relationship/<%= relationship.id %>">Delete</a>
     </div>
   </li>
   <% end %>

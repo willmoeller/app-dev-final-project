@@ -2,7 +2,32 @@
 <p>Establish your data sharing preferences.</p>
 
 <h2>For Trusted Companies</h2>
-<p>Select the data that you are comfortable sharing with Trusted Companies. This will set your default preferences. You can also set company-level preferences for data sharing by visiting your <a href="/user_companies">Trusted Companies</a> page.</p>
+<p>Select the data that you are comfortable sharing with <a href="/user_companies">Trusted Companies</a>. This will set your default preferences.</p>
 
-<h2>For Other Companies</h2>
-<p>For companies that you have not made Trusted Companies, select the data that you are comfortable sharing with them.</p>
+<div class="mb-4">
+  <form action="/update_user_preferences" method="post">
+    <ul class="list-group mb-3">
+       <li class="list-group-item">
+        <input class="form-check-input me-1" type="checkbox" value="email" name="email" id="email">
+        <label class="form-check-label" for="email">Email</label>
+      </li>
+      <li class="list-group-item">
+        <input class="form-check-input me-1" type="checkbox" value="first_name" name="first_name" id="first_name">
+        <label class="form-check-label" for="first_name">First name</label>
+      </li>
+      <li class="list-group-item">
+        <input class="form-check-input me-1" type="checkbox" value="last_name" name="last_name" id="last_name">
+        <label class="form-check-label" for="last_name">Last name</label>
+      </li>
+      <li class="list-group-item">
+        <input class="form-check-input me-1" type="checkbox" value="date_of_birth" name="date_of_birth" id="date_of_birth">
+        <label class="form-check-label" for="date_of_birth">Date of birth</label>
+      </li>
+      <li class="list-group-item">
+        <input class="form-check-input me-1" type="checkbox" value="address" name="address" id="address">
+        <label class="form-check-label" for="address">Address</label>
+      </li>
+    </ul>
+    <button type="submit" class="btn btn-primary mb-3">Set preferences</button>
+  </form>
+</div>

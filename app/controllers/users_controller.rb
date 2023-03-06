@@ -7,6 +7,22 @@ class UsersController < ApplicationController
     render({ :template => "/users/preferences.html.erb" })
   end
 
+  def update_preferences
+    user = @current_user
+    if params.has_key?(:email)
+      email = params.fetch("email")
+    end
+
+    redirect_to("/user_preferences")
+    # render({ :template => "/users/preferences.html.erb" })
+
+    # first_name = params.fetch("first_name")
+    # last_name = params.fetch("last_name")
+    # date_of_birth = params.fetch("date_of_birth")
+    # address = params.fetch("address")
+
+  end
+
   def show_profile
     @user = @current_user
     render({ :template => "users/show_profile.html.erb" })
